@@ -6,7 +6,11 @@ chrome.webRequest.onBeforeRequest.addListener(
       const URL = 'www.lanacion.com.ar'
       chrome.cookies.getAll({domain: URL}, function(cookies) {
         for(var i=0; i<cookies.length;i++) {
-          chrome.cookies.remove({url: "http://" + URL + cookies[i].path, name: cookies[i].name});
+          let cookiePath = cookies[i].path;
+          let cookieName = cookies[i].name;
+          console.log("Deleting cookie with path: " + cookiePath);
+          console.log("Deleting cookie with name: " + cookieName);
+          chrome.cookies.remove({url: "http://" + URL + cookiePath, name: cookieName});
         }
       });
         return details.url;
