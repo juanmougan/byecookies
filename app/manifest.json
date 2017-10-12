@@ -16,8 +16,11 @@
   },
   "permissions": [
     "cookies",
-    "*://*.google.com/",
-    "tabs"
+    "webRequest",
+    "tabs",
+    "http://*/*",
+    "https://*/*",
+    "webRequestBlocking"
   ],
   "browser_action": {
     "default_icon": {
